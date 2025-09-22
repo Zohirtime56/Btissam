@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>موقع الروايات</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>📚 موقع نشر الروايات</h1>
+    <nav>
+      {% if user %}
+        <span>مرحباً {{ user.name }} ({{ user.email }})</span> |
+        <a href="{{ url_for('logout') }}">تسجيل خروج</a>
+      {% else %}
+        <a href="{{ url_for('login') }}">تسجيل دخول عبر Google</a>
+      {% endif %}
+    </nav>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
