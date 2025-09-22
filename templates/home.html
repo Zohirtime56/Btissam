@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>📖 الروايات المتاحة</h2>
+  <div class="novels">
+    {% for novel in novels %}
+      <div class="novel">
+        <h3>{{ novel.title }}</h3>
+        <p><b>المؤلف:</b> {{ novel.author }}</p>
+        <p>{{ novel.summary }}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
